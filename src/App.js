@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+// import Sidebar from './components/Sidebar'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Dashboard from './pages/Dashboard.jsx'
+import About from './pages/About.jsx'
+import Analytics from './pages/Analytics.jsx'
+import Comment from './pages/Comment.jsx'
+import Product from './pages/Product.jsx'
+import ProductList from './pages/ProductList.jsx'
+import Sidebar from './components/Sidebar.jsx'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+    <Sidebar>
+      <Routes>
+        <Route path="/" elemet={<Dashboard/>}/>
+        <Route path="/about" elemet={<About/>}/>
+        <Route path="/analytics" elemet={<Analytics/>}/>
+        <Route path="/comment" elemet={<Comment/>}/>
+        <Route path="/product" elemet={<Product/>}/>
+        <Route path="/productList" elemet={<ProductList/>}/>
+      </Routes>
+    </Sidebar>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
